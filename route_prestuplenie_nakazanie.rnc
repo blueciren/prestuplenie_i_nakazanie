@@ -1,0 +1,37 @@
+start = book
+book = element book {metadata,body}
+metadata = element metadata {author, title, source, year}
+author = element author {text}
+title = element title {text}
+source = element source {a}
+a = element a {href}
+href = attribute href {text}
+year = element year {xsd:integer}
+
+body = element body {part+}
+part = element part {id, mixed{route*|place*|trans*}*}
+route = element route {id, who, date?, ex, partchapter+}
+id = attribute id {xsd:int|text}
+who = attribute who {"ras"|"svi"|"sonya"|"razumikhin"}
+ex = attribute ex {text}
+date = attribute date {text} 
+place = element place {sort, in-map?, partchapter+}
+sort = attribute sort {list {("street"|"crossroad"|"bridge"|"square"|"park"|"river"|"island"|"garden"|"ras-house"|"pawnbroker-house"|"sonya-house"|"raz-house"|"house"|"marmeladov_house"|"police_station"|"Porfirii_cabinet"|"hotel"|"tavern"|"courtyard"|"stairs"|"corridor"|"threshold"|"apartment"|"siberia"|"america"|"firetower")*}}
+trans = element trans {original, text}
+original = attribute original {text}
+partchapter = element partchapter {id, mixed{time*|climate*|environ*|location*|whom*|emotion*|nonsense*|plan*|anti-plan*|philosoph*|emph*|trans*}*}
+time = element time {text}
+climate = element climate {text}
+location = element location {sort, in-map?, mixed{time*|climate*|environ*|location*|whom*|emotion*|nonsense*|plan*|anti-plan*|philosoph*|emph*|trans*}*}
+emph = element emph {text}
+in-map = attribute in-map {text}
+environ = element environ {text}
+whom = element whom {text}
+emotion = element emotion {text}
+nonsense = element nonsense {ref?, text}
+ref = attribute ref {text}
+plan = element plan {text}
+anti-plan = element anti-plan {text}
+philosoph = element philosoph {text}
+
+
